@@ -1,0 +1,96 @@
+PROCEDURE dot_product( VAR tab1,tab2 : ARRAY_OF INTEGER, VAR dot : INTEGER)
+VAR
+    i : INTEGER;
+BEGIN
+    dot :=0;
+   FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+        dot := dot + tab1[i]*tab2[i];
+
+   END_FOR
+   
+END
+
+ALGORITHM orthogonal
+VAR
+    t1,t2 : ARRAY_OF INTEGER [60];
+    prod : INTEGER;
+BEGIN
+
+    // taille des tableaux
+    REPEAT
+       write ("donnez le taille du tableau");
+       read (n);
+    UNTIL (n>0)
+
+    // remplir le premier tableau
+    FOR i FROM 0 TO  n-1 STEP 1 DO
+        write ("donnez la vealeur du case numéro ",i);
+       read (t1[i]);
+    END_FOR
+
+    // remplir le deuxième tableau
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        write ("donnez la vealeur du case numéro ",i);
+       read (t2[i]);
+    END_FOR
+
+    // affichage
+    dot_product(t1,t2,dot);
+    IF (prod = 0) THEN
+        Write("t1 et t2 sont orthogonales");
+    ELSE
+        Write("t1 et t2 ne sont pas orthogonales");
+    END_IF
+END
+
+// ______________________________________________________________________________________________________________
+
+FUNCTION dot_product( VAR tab1,tab2 : ARRAY_OF INTEGER) : INTEGER
+VAR
+    i : INTEGER;
+    prod : INTEGER := 0;
+    BEGIN
+    prod :=0;
+     FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+        dot := dot + tab1[i]*tab2[i];
+
+    END_FOR
+   
+    RETURN prod ;
+END
+
+ALGORITHM orthogonal
+VAR
+    t1,t2 : ARRAY_OF INTEGER [60];
+    prod : INTEGER;
+BEGIN
+   
+    // taille des tableaux
+    REPEAT
+       write ("donnez le taille du tableau");
+       read (n);
+    UNTIL (n>0)
+
+    // remplir le premier tableau
+    FOR i FROM 0 TO n-1 step 1 DO
+        write ("donnez la vealeur du case numéro ",i);
+       read (t1[i]);
+    END_FOR
+
+    // remplir le deuxième tableau
+    FOR i FROM 0 TO n-1 step 1 DO
+        write ("donnez la vealeur du case numéro ",i);
+       read (t2[i]);
+    END_FOR
+
+    // affichage
+    prod := dot_product(t1,t2);
+    IF (prod = 0) THEN
+        Write("t1 et t2 sont orthogonales");
+    ELSE
+        Write("t1 et t2 ne sont pas orthogonales");
+    END_IF
+
+
+    
+END
